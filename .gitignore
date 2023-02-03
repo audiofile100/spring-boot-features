@@ -1,0 +1,15 @@
+# ide
+.idea
+*.iml
+
+# maven
+.mvn
+mvnw
+mvnw.cmd
+
+# build
+target
+
+# misc
+*.DS_Store
+*.log
