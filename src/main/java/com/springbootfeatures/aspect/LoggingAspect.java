@@ -4,11 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Slf4j
 @Aspect
-@Configuration
+@Component
 public class LoggingAspect {
 
     @Before("com.springbootfeatures.aspect.pointcut.PointCuts.ALL()")
@@ -35,7 +35,7 @@ public class LoggingAspect {
         log.info("AFTER THROWING {}", joinPoint);
     }
 
-    @Around("com.springbootfeatures.aspect.pointcut.PointCuts.SERVICES()")
+    @Around("@annotation(com.springbootfeatures.aspect.annotation.MyTimer)")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         long start = System.currentTimeMillis();
